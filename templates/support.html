@@ -1,13 +1,16 @@
-  
 <html>
-    <head>
 
-    </head>
-    <body>
-        {% for number in numbers %}
-            {{ numbers.age }}
-            {{ numbers.name }}
-            {{ numbers.party_support }}
-        {% endfor %}
-    </body>
+<head>
+
+</head>
+
+<body>
+    <h1>Smell</h1>
+
+    {% for key, value in numbers.items() %}
+    {{key}}
+    {% endfor %}
+</body>
+
 </html>
+  

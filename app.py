@@ -4,8 +4,9 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+
 app.config["MONGO_DBNAME"] = 'MyNumberTest'
-app.config["MONGO_URI"] = 'mongodb+srv://root:r00tpa55@mycluster-qbgul.mongodb.net/TestMyNumber?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = 'mongodb+srv://root:r00tpa55@mycluster-qbgul.mongodb.net/MyNumberTest?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
@@ -13,7 +14,9 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/info')
 def get_tasks():
-    return render_template("support.html", numbers=mongo.db.Numbers.find())
+    numbers=mongo.db.Numbers.find()
+    print(numbers)
+    return render_template('support.html', numbers=numbers)
 
 
 if __name__ == '__main__':
